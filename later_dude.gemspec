@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name = %q{later_dude}
   s.version = "0.3.1"
 
-  s.authors = ["Clemens Kofler"]
+  s.authors = ["Clemens Kofler", 'Alexander Lang']
   s.description = %q{LaterDude is a small calendar helper plugin for Rails with i18n support.}
   s.summary = %q{Small calendar helper plugin for Rails with i18n support}
   s.email = %q{clemens@railway.at}
@@ -27,9 +27,11 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/calendar_helper_test.rb",
     "test/calendar_test.rb",
+    "test/wwekly_test.rb",
     "test/test_helper.rb"
   ]
 
   s.add_dependency 'rails', '>= 2.3'
   s.add_development_dependency 'mocha'
+  s.add_development_dependency 'nokogiri'
 end
