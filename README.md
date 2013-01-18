@@ -42,6 +42,10 @@ There are two basic ways of outputting a calendar: via the presenter itself or b
 
 both yield the same results. This is similar to what Rails does with RedCloth/BlueCloth filters.
 
+Instead of year and month you can supply a week and a month which will result in a weekly calendar being rendered:
+
+    <%= calendar_for({year: 2013, week: 5})
+
 In addition to year and month which are required parameters you can optionally supply an options hash:
 
     <%= calendar_for(2009, 1, :calendar_class => "my_calendar", :first_day_of_week => 1)
