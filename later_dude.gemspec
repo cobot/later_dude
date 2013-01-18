@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
     "lib/later_dude.rb",
     "lib/later_dude/calendar.rb",
     "lib/later_dude/calendar_helper.rb",
+    "lib/later_dude/day_renderer.rb",
     "lib/later_dude/rails2_compat.rb",
     "lib/later_dude/railtie.rb"
   ]
@@ -27,7 +28,8 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/calendar_helper_test.rb",
     "test/calendar_test.rb",
-    "test/weekly_test.rb",
+    "test/week_calendar_test.rb",
+    "test/day_calendar_test.rb",
     "test/test_helper.rb"
   ]
 

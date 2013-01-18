@@ -72,25 +72,15 @@ module LaterDude
     end
 
     def show_day(day)
-      options = { :class => "day" }
-      options[:class] << " otherMonth" if day.month != @days.first.month
-      options[:class] << " weekend" if Calendar.weekend?(day)
-      options[:class] << " today" if day.today?
-
-      # block is only called for current month or if :yield_surrounding_days is set to true
+      content = ''
+      renderer = DayRenderer.new(day)
+      options = {}
+      options[:class] = "otherMonth" if day.month != @days.first.month
       if @block && (@options[:yield_surrounding_days] || day.month == @days.first.month)
-        content, options_from_block = Array(@block.call(day))
-
-        # passing options is optional
-        if options_from_block.is_a?(Hash)
-          options[:class] << " #{options_from_block.delete(:class)}" if options_from_block[:class]
-          options.merge!(options_from_block)
-        end
+        content = renderer.to_html options, &@block
       else
-        content = day.day
+        content = renderer.to_html options
       end
-
-      content = content_tag(:td, content.to_s.html_safe, options)
 
       # close table row at the end of a week and start a new one
       # opening and closing tag for the first and last week are included in #show_days

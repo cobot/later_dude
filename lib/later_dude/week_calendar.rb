@@ -40,24 +40,7 @@ module LaterDude
     end
 
     def show_day(day)
-      options = { :class => "day" }
-      options[:class] << " weekend" if Calendar.weekend?(day)
-      options[:class] << " today" if day.today?
-
-      if @block
-        content, options_from_block = Array(@block.call(day))
-
-        # passing options is optional
-        if options_from_block.is_a?(Hash)
-          options[:class] << " #{options_from_block.delete(:class)}" if options_from_block[:class]
-          options.merge!(options_from_block)
-        end
-      else
-        content = day.day
-      end
-
-      content = content_tag(:td, content.to_s.html_safe, options)
-      content
+      DayRenderer.new(day).to_html(&@block)
     end
 
     def current_week

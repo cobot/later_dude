@@ -26,4 +26,5 @@ module LaterDude
   autoload :WeekCalendar, 'later_dude/week_calendar'
   autoload :DayCalendar, 'later_dude/day_calendar'
   autoload :CalendarHelper, 'later_dude/calendar_helper'
+  autoload :DayRenderer, 'later_dude/day_renderer'
 end

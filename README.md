@@ -46,6 +46,10 @@ Instead of year and month you can supply a week and a month which will result in
 
     <%= calendar_for({year: 2013, week: 5})
 
+There's also a single day "calendar":
+
+    <%= calendar_for({year: 2013, month: 5, day: 10})
+
 In addition to year and month which are required parameters you can optionally supply an options hash:
 
     <%= calendar_for(2009, 1, :calendar_class => "my_calendar", :first_day_of_week => 1)

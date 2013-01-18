@@ -235,7 +235,7 @@ class CalendarTest < ActiveSupport::TestCase
     # end of last week: 2 May 2009
     surrounding_days = [Date.civil(2009, 3, 29), Date.civil(2009, 3, 30), Date.civil(2009, 3, 31), Date.civil(2009, 5, 1), Date.civil(2009, 5, 2)]
     surrounding_days.each do |day|
-      assert_match %r(<td class="day([^\"]*)otherMonth([^\"]*)"><b>#{day.day}</b></td>), calendar_html
+      assert_match %r(<td class="([^\"]*)otherMonth([^\"]*)"><b>#{day.day}</b></td>), calendar_html
     end
   end
 

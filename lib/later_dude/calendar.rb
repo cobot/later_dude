@@ -26,12 +26,12 @@ module LaterDude
       end
       @options = (options || {}).symbolize_keys.reverse_merge(self.class.default_calendar_options)
 
-      @renderer = if month
-        MonthCalendar.new year, month, @options, &block
+      @renderer = if day
+        DayCalendar.new year, month, day, @options, &block
       elsif week
         WeekCalendar.new year, week, @options, &block
       else
-        DayCalendar.new year, day, @options, &block
+        MonthCalendar.new year, month, @options, &block
       end
     end
 
