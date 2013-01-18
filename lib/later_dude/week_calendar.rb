@@ -9,7 +9,7 @@ module LaterDude
     #        week: 1..52
     def initialize(year, week, options = {}, &block)
       @year, @week, @options = year, week, options
-      first_day = Date.civil(year, ((week - 1) * 7 / 12) + 1 + first_day_of_week, ((week - 1) * 7 % 12) + 1 + first_day_of_week)
+      first_day = Date.commercial(year, week) - 1 + first_day_of_week
       @days = first_day..(first_day + 6)
       @block = block
     end

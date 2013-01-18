@@ -20,6 +20,12 @@ class WeekCalendarTest < ActiveSupport::TestCase
     assert_equal %w(1 2 3 4 5 6 7), week.css('tbody td').map(&:text)
   end
 
+  test 'renders a week crossing years' do
+    week = Nokogiri::HTML LaterDude::Calendar.new({year: 2013, week: 1}, first_day_of_week: 1).to_html
+
+    assert_equal %w(31 1 2 3 4 5 6), week.css('tbody td').map(&:text)
+  end
+
   test 'renders the week day names with first_day_of_week = 1' do
     week = Nokogiri::HTML LaterDude::Calendar.new({year: 2012, week: 1}, first_day_of_week: 1).to_html
 
