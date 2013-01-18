@@ -19,6 +19,10 @@ class CalendarHelperTest < ActiveSupport::TestCase
     assert_nothing_raised { @helper.calendar_for(2009, 1, options) }
   end
 
+  test "accepts hash instead of year and month" do
+    assert_nothing_raised { @helper.calendar_for({year: 2009, month: 1}, {}) }
+  end
+
   test "accepts optional block" do
     options = { :calendar_class => "my_calendar", :first_day_of_week => 1 }
     some_block = lambda { |day| nil }

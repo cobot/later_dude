@@ -29,7 +29,7 @@ module LaterDude
     end
 
     def show_names
-      "#{show_month_names}#{show_day_names}"
+      "#{show_month_names}#{show_day_names}".html_safe
     end
 
     private

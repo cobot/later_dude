@@ -22,6 +22,7 @@ module LaterDude
       else
         year, month = args[0], args[1]
         options = args[2]
+        raise ArgumentError.new("Need to pass in year and month") unless year && month
       end
       @options = (options || {}).symbolize_keys.reverse_merge(self.class.default_calendar_options)
 

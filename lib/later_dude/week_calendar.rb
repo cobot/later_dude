@@ -16,7 +16,7 @@ module LaterDude
     def show_names
       content_tag(:tr, current_week.html_safe, :class => 'week_names') do
         day_names.map do |name|
-          content_tag(:td, name)
+          content_tag(:th, name)
         end.join.html_safe
       end
     end
