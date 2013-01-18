@@ -14,7 +14,11 @@ module LaterDude
     end
 
     def show_names
-      content_tag(:tr, current_week.html_safe, :class => 'week_names')
+      content_tag(:tr, current_week.html_safe, :class => 'week_names') do
+        day_names.map do |name|
+          content_tag(:td, name)
+        end.join.html_safe
+      end
     end
 
     def show_days(&block)
@@ -67,6 +71,11 @@ module LaterDude
 
     def day_names
       @day_names ||= @options[:use_full_day_names] ? Calendar.full_day_names : Calendar.abbreviated_day_names
+      if first_day_of_week == 1
+        @day_names[1..-1] + [@day_names[0]]
+      else
+        @day_names
+      end
     end
   end
 end

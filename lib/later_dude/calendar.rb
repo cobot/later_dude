@@ -37,7 +37,7 @@ module LaterDude
     def to_html(&block)
       renderer.block = block if block_given?
       content_tag(:table, :class => "#{@options[:calendar_class]}") do
-        content_tag(:thead, "#{renderer.show_names}".html_safe) +
+        content_tag(:thead, renderer.show_names) +
           content_tag(:tbody, renderer.show_days(&block))
       end
     end

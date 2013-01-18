@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative './test_helper'
 
 I18n.load_path += Dir[File.expand_path('fixtures/locales', File.dirname(__FILE__)) + '/*.yml']
 
