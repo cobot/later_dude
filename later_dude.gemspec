@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/calendar_helper_test.rb",
     "test/calendar_test.rb",
-    "test/wekly_test.rb",
+    "test/weekly_test.rb",
     "test/test_helper.rb"
   ]
 
