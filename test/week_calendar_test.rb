@@ -32,8 +32,15 @@ class WeekCalendarTest < ActiveSupport::TestCase
     assert_equal %w(Sun Mon Tue Wed Thu Fri Sat), week.css('thead tr.week_names th').map(&:text)
   end
 
-  test 'renders the contents of the block' do
+  test 'renders the contents of the block when passed to to_html' do
     html = LaterDude::Calendar.new({year: 2012, week: 1}).to_html {'week'}
+    week = Nokogiri::HTML html
+
+    assert_equal %w(week) * 7, week.css('tbody td').map{|td| td.text}
+  end
+
+  test 'renders the contents of the block when passed to initialize' do
+    html = (LaterDude::Calendar.new({year: 2012, week: 1}) {'week'}).to_html
     week = Nokogiri::HTML html
 
     assert_equal %w(week) * 7, week.css('tbody td').map{|td| td.text}
