@@ -4,17 +4,13 @@ require 'action_view/helpers/capture_helper'
 require 'action_view/helpers/tag_helper'
 require 'action_view/helpers/url_helper'
 
-begin
-  require 'active_support/core_ext/date/acts_like'
-  require 'active_support/core_ext/date_time/acts_like'
-  require 'active_support/core_ext/time/acts_like'
+require 'active_support/core_ext/date'
+require 'active_support/core_ext/date_time/acts_like'
+require 'active_support/core_ext/time/acts_like'
 
-  require 'active_support/core_ext/integer/time'
-  require 'active_support/core_ext/numeric/time'
-rescue LoadError
-  # nothing
-end
-
+require 'active_support/core_ext/integer/time'
+require 'active_support/core_ext/numeric/time'
+require 'active_support/core_ext/hash/reverse_merge'
 
 require 'later_dude/rails2_compat'
 

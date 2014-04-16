@@ -33,7 +33,9 @@ Gem::Specification.new do |s|
     "test/test_helper.rb"
   ]
 
-  s.add_dependency 'rails', '>= 2.3'
+  s.add_dependency 'actionview', '>= 2.3'
   s.add_development_dependency 'mocha'
   s.add_development_dependency 'nokogiri'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'rake'
 end
