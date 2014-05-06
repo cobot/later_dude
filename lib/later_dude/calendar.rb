@@ -65,11 +65,11 @@ module LaterDude
       end
 
       def full_day_names
-        @full_day_names ||= I18n.translate(:'date.day_names')
+        I18n.translate(:'date.day_names')
       end
 
       def abbreviated_day_names
-        @abbreviated_day_names ||= I18n.translate(:'date.abbr_day_names')
+        I18n.translate(:'date.abbr_day_names')
       end
     end
   end
