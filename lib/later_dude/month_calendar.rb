@@ -43,7 +43,7 @@ module LaterDude
     def show_day_names
       return if @options[:hide_day_names]
       content_tag(:tr, :class => 'day_names') do
-        apply_first_day_of_week(day_names).inject('') do |output, day|
+        apply_first_day_of_week(day_names).inject(+'') do |output, day|
           output << content_tag(:th, include_day_abbreviation(day), :scope => 'col', :class => Date::DAYNAMES[day_names.index(day)].downcase)
         end.html_safe
       end
